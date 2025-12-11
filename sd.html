@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spring Day Daily Care Sdn Bhd （202301041770）</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f4f9;
+    margin: 0;
+    padding: 0 15px;
+    color: #6a4c6f;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  header {
+    background-color: #bba0c7;
+    padding: 30px 10px;
+    text-align: center;
+    border-bottom: 5px solid #a87db8;
+    box-shadow: 0 2px 8px rgba(184, 158, 207, 0.5);
+    color: white;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 1.1px;
+    text-shadow: 1px 1px 3px rgba(132, 69, 161, 0.8);
+  }
+  header img {
+    height: 100px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 3px rgba(186,147,214,0.6));
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  nav {
+    background-color: #d5b9dc;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px 0;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(117, 72, 133, 0.9);
+    transition: background-color 0.3s ease;
+  }
+  nav button.active, nav button:hover {
+    background-color: #9c79b7;
+    transform: scale(1.1);
+  }
+  main {
+    max-width: 1200px;
+    margin: 80px auto 60px;
+    background-color: #fff5fb;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 0 6px 25px rgba(184, 158, 207, 0.25);
+    min-height: 450px;
+  }
+  .content-section {
+    display: none;
+  }
+  .content-section.active {
+    display: block;
+  }
+  .slogan {
+    font-size: 32px;
+    font-style: italic;
+    color: #a476bc;
+    text-align: center;
+    margin: 35px 0 45px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-shadow: 1px 1px 4px #cbb1e0;
+  }
+  /* 关于我们 */
+  #about p {
+    margin-bottom: 15px;
+  }
+  /* 产品列表 两列布局 */
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+  .product-item {
+    flex: 0 0 48%;
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 4px 25px rgba(180,140,200,0.2);
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+  }
+  /* 最后一个产品单独居中 */
+  .product-list .product-item:last-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product-item h3 {
+    color: #9356aa;
+    font-size: 26px; 
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .desc {
+    color: #7c5c89;
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  .slideshow-container {
+    position: relative;
+    margin-bottom: 20px;
+    height: 280px;
+  }
+  .slide {
+    display: none;
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(160, 131, 177, 0.2);
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.4);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    z-index: 10;
+  }
+  .prev {
+    left: 8px;
+  }
+  .next {
+    right: 8px;
+  }
+  .nav-button:hover {
+    background-color: rgba(0,0,0,0.7);
+  }
+  video {
+    display: block;
+    margin: 30px auto 50px;
+    max-width: 400px; /* 调小尺寸 */
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 6px 22px rgba(180, 145, 207, 0.5);
+  }
+  /* 联系方式 */
+  .contact-info {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .contact-info a {
+    background-color: #bca0ca;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 14px;
+    box-shadow: 0 2px 7px rgba(188, 160, 202, 0.65);
+    transition: background-color 0.3s ease;
+  }
+  .contact-info a:hover {
+    background-color: #aa8bb8;
+    box-shadow: 0 3px 12px rgba(178, 139, 184, 0.85);
+  }
+  .contact-info img {
+    width: 22px;
+  }
+  /* FAQ */
+  .faq-section {
+    margin-top: 40px;
+  }
+  .faq-item {
+    background-color: #f5e8f4;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(180, 145, 207, 0.3);
+  }
+  .faq-item h3 {
+    color: #8b619f;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .faq-item p {
+    color: #7c5c89;
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="logo.png" alt="Spring Day Daily Care Logo" />
+  Spring Day Daily Care Sdn Bhd （202301041770）
+</header>
+
+<nav>
+  <button class="tab-btn active" data-target="about">关于我们 / About Us</button>
+  <button class="tab-btn" data-target="products">产品 / Products</button>
+  <button class="tab-btn" data-target="contact">联系方式 & 关注我们 / Contact & Follow Us</button>
+  <button class="tab-btn" data-target="faq">常见问题 / FAQ</button>
+</nav>
+
+<main>
+  <div class="slogan">Love Yourself, Love Your Loved One</div>
+
+  <section id="about" class="content-section active">
+    <h2>品牌故事 / Our Story</h2>
+    <p>Spring Day Daily Care 创立于2023年10月23日。我们秉持着“Love Yourself, Love Your Loved One”的品牌理念，希望每位使用我们产品的用户，能爱自己，也能爱自己所爱的人，享受高品质、健康的生活用品。</p>
+    <p>Spring Day Daily Care was founded on October 23, 2023. We uphold the brand philosophy of "Love Yourself, Love Your Loved One", hoping every user of our products loves themselves and their loved ones, enjoying high-quality and healthy daily essentials.</p>
+  </section>
+
+  <section id="products" class="content-section">
+    <h2>我们的产品 / Our Products</h2>
+    <div class="product-list">
+      <div class="product-item" data-product="toilet">
+        <h3>Spring Day Deluxe Toilet Paper（4ply）</h3>
+        <div class="slideshow-container">
+          <div class="slide"><img src="toilet1.png" alt="Toilet Paper Image 1"></div>
+          <div class="slide"><img src="toilet2.png" alt="Toilet Paper Image 2"></div>
+          <div class="slide"><img src="toilet3.png" alt="Toilet Paper Image 3"></div>
+          <div class="slide"><img src="toilet4.png" alt="Toilet Paper Image 4"></div>
+          <div class="slide"><img src="toilet5.png" alt="Toilet Paper Image 5"></div>
+          <button class="nav-button prev">&#10094;</button>
+          <button class="nav-button next">&#10095;</button>
+        </div>
+        <p class="desc">采用4层加厚设计，柔软且强韧，适合敏感肌肤使用。</p>
+      </div>
+
+      <div class="product-item" data-product="3ply">
+        <h3>Spring Day Facial Tissue（3ply）</h3>
+        <div class="slideshow-container">
+          <div class="slide"><img src="3ply1.png" alt="Facial Tissue Image 1"></div>
+          <div class="slide"><img src="3ply2.png" alt="Facial Tissue Image 2"></div>
+          <div class="slide"><img src="3ply3.png" alt="Facial Tissue Image 3"></div>
+          <div class="slide"><img src="3ply4.png" alt="Facial Tissue Image 4"></div>
+          <div class="slide"><img src="3ply5.png" alt="Facial Tissue Image 5"></div>
+          <button class="nav-button prev">&#10094;</button>
+          <button class="nav-button next">&#10095;</button>
+        </div>
+        <p class="desc">三层设计，适合日常护理。</p>
+      </div>
+
+      <div class="product-item" data-product="4ply">
+        <h3>Spring Day Deluxe Facial Tissue（4ply）</h3>
+        <div class="slideshow-container">
+          <div class="slide"><img src="4ply1.png" alt="Deluxe Facial Tissue Image 1"></div>
+          <div class="slide"><img src="4ply2.png" alt="Deluxe Facial Tissue Image 2"></div>
+          <div class="slide"><img src="4ply3.png" alt="Deluxe Facial Tissue Image 3"></div>
+          <div class="slide"><img src="4ply4.png" alt="Deluxe Facial Tissue Image 4"></div>
+          <div class="slide"><img src="4ply5.png" alt="Deluxe Facial Tissue Image 5"></div>
+          <button class="nav-button prev">&#10094;</button>
+          <button class="nav-button next">&#10095;</button>
+        </div>
+        <p class="desc">升级4层面巾纸，质感更佳。</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <h2>品牌视频 / Brand Video</h2>
+      <video width="400" style="max-width: 100%; height: auto;" controls>
+        <source src="springdayvideo.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+    </div>
+  </section>
+
+  <section id="contact" class="content-section">
+    <h2>联系方式 & 关注我们 / Contact & Follow Us</h2>
+    <p><strong>公司名称：</strong>Spring Day Daily Care Sdn Bhd</p>
+    <p><strong>电话：</strong>019-769 5299</p>
+    <p><strong>地址：</strong>26, Jalan Perdana 3/2, Taman Sri Pulai Perdana 2, 81300, Johor Bahru, Johor</p>
+    <p><strong>邮箱：</strong><a href="mailto:springdaydailycare@gmail.com">springdaydailycare@gmail.com</a></p>
+
+    <div class="contact-info">
+      <a href="https://my.shp.ee/rAe7TWU" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111425.png" alt="Shopee" />
+        立即购买 / Buy Now
+      </a>
+
+      <a href="https://www.facebook.com/share/194Zvo16mP/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" style="background-color: #bca0ca; margin-left: 12px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" />
+        Facebook 页面 / Facebook Page
+      </a>
+    </div>
+  </section>
+
+  <section id="faq" class="content-section">
+    <h2>常见问题 / FAQ</h2>
+    <div class="faq-section">
+      <div class="faq-item">
+        <h3>1. 产品的主要成分是什么？ / What are the main ingredients of the products?</h3>
+        <p>我们的产品采用环保和天然材料，确保无添加无刺激。比如我们的面巾纸使用了纯天然木浆，不含任何有害化学成分，适合所有皮肤类型。</p>
+      </div>
+      <div class="faq-item">
+        <h3>2. 如何正确使用面巾纸和卫生纸？ / How to correctly use the facial tissue and toilet paper?</h3>
+        <p>面巾纸可以用于日常护肤，轻轻擦拭面部，保持皮肤清洁；卫生纸则适用于日常生活中如厕时使用。请根据个人需要选择适合的产品。</p>
+      </div>
+      <div class="faq-item">
+        <h3>3. 我如何储存这些产品？ / How should I store these products?</h3>
+        <p>为保持产品的最佳质量，请将纸品存放在干燥、通风的地方，避免阳光直射以及高温环境。</p>
+      </div>
+      <div class="faq-item">
+        <h3>4. 这些产品适合哪些人群？ / Who can use these products?</h3>
+        <p>我们的产品适合所有年龄段的人群，尤其是皮肤敏感的用户。由于我们使用天然原材料，产品非常温和。</p>
+      </div>
+      <div class="faq-item">
+        <h3>5. 我可以通过哪些平台购买产品？ / Where can I purchase the products?</h3>
+        <p>您可以通过我们的Shopee店铺进行购买，点击 <a href="https://my.shp.ee/rAe7TWU" target="_blank" rel="noopener noreferrer">这里</a> 立即购买。</p>
+      </div>
+      <div class="faq-item">
+        <h3>6. 产品是否经过安全测试？ / Are the products tested for safety?</h3>
+        <p>是的，所有产品都经过严格的安全和质量检测，确保无刺激，适合所有皮肤类型。</p>
+      </div>
+      <div class="faq-item">
+        <h3>7. 这些产品适合宝宝使用吗？ / Are the products suitable for babies?</h3>
+        <p>是的，我们的产品非常温和，适合宝宝和敏感肌肤使用。我们采用了天然和无刺激的材料，确保宝宝的肌肤得到温柔的呵护。</p>
+      </div>
+      <div class="faq-item">
+        <h3>8. 如何联系客户服务？ / How to contact customer service?</h3>
+        <p>您可以通过我们的电子邮件：springdaydailycare@gmail.com 或拨打电话 019-769 5299 来联系客户服务。我们会在工作日尽快回复您。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // 导航切换功能
+  const buttons = document.querySelectorAll('nav button');
+  const sections = document.querySelectorAll('.content-section');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+      button.classList.add('active');
+      const target = button.getAttribute('data-target');
+      const section = document.getElementById(target);
+      if(section) section.classList.add('active');
+    });
+  });
+  // 默认激活第一个页面
+  document.querySelector('nav button').click();
+
+  // 产品图片轮播功能
+  document.querySelectorAll('.product-item').forEach(product => {
+    const slides = product.querySelectorAll('.slide');
+    const prevBtn = product.querySelector('.prev');
+    const nextBtn = product.querySelector('.next');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      if (index >= slides.length) currentIndex = 0;
+      else if (index < 0) currentIndex = slides.length - 1;
+      else currentIndex = index;
+
+      slides.forEach((slide, i) => {
+        slide.style.display = (i === currentIndex) ? 'block' : 'none';
+      });
+    }
+
+    showSlide(currentIndex);
+
+    prevBtn.addEventListener('click', () => {
+      showSlide(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      showSlide(currentIndex + 1);
+    });
+  });
+</script>
+
+</body>
+</html>
