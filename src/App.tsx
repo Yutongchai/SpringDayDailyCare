@@ -305,7 +305,7 @@ import shopVideo from "./pic/shop.mp4";
   return (
     <APIProvider apiKey="AIzaSyDr4f-WIYP4FsWF7RW-ElMHMvrB_nGNRNo">
       {" "}
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white text-base sm:text-base text-[15px]">
         <nav
           className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
             scrolled
@@ -313,22 +313,22 @@ import shopVideo from "./pic/shop.mp4";
               : "bg-transparent"
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+            <div className="flex justify-between items-center h-16 sm:h-20">
               <div className="flex items-center space-x-2">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center">
                   <img
                     src={SDlogo}
                     alt="SD Logo"
-                    className="w-11 h-11 object-contain"
+                    className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
                   />
                 </div>
-                <span className="text-xl font-semibold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
+                <span className="text-lg sm:text-xl font-semibold bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent whitespace-nowrap">
                   Spring Day Daily Care
                 </span>
               </div>
 
-              <div className="hidden md:flex items-center space-x-6">
+              <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
                 {[
                   "home",
                   "about",
@@ -390,7 +390,7 @@ import shopVideo from "./pic/shop.mp4";
                 </div>
               </div>
 
-              <div className="flex items-center md:hidden">
+              <div className="flex items-center md:hidden ml-2">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="p-2 rounded-lg hover:bg-purple-50 transition-colors"
@@ -406,7 +406,7 @@ import shopVideo from "./pic/shop.mp4";
 
             {isMenuOpen && (
               <div className="md:hidden bg-white border-t border-purple-100">
-                <div className="px-4 py-4 space-y-3">
+                <div className="px-2 py-4 space-y-3">
                   {[
                     "home",
                     "about",
@@ -461,7 +461,7 @@ import shopVideo from "./pic/shop.mp4";
 
         <section
           id="home"
-          className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-50"
+          className="relative min-h-screen flex flex-col-reverse lg:flex-row items-center overflow-hidden bg-gradient-to-br from-purple-50 via-white to-purple-50"
         >
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
@@ -469,19 +469,19 @@ import shopVideo from "./pic/shop.mp4";
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000" />
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-fade-in-up">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+          <div className="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-12 sm:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 sm:space-y-8 animate-fade-in-up text-center lg:text-left">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-purple-600 via-purple-500 to-purple-400 bg-clip-text text-transparent">
                   {t("hero.line1")}
                 </span>
                 <br />
                 <span className="text-gray-800">{t("hero.line2")}</span>
               </h1>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 {t("hero.desc")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => scrollToSection("products")}
                   className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-500 text-white rounded-full font-medium hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center"
@@ -498,12 +498,12 @@ import shopVideo from "./pic/shop.mp4";
               </div>
             </div>
 
-            <div className="relative animate-fade-in-up animation-delay-300">
+            <div className="relative animate-fade-in-up animation-delay-300 mb-8 lg:mb-0">
               <div className="relative z-10">
                 <img
                   src={SDlogo}
                   alt="Spring Day Products"
-                  className="rounded-3xl shadow-2xl w-full"
+                  className="rounded-3xl shadow-2xl w-60 h-60 sm:w-80 sm:h-80 mx-auto lg:mx-0 object-contain"
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 w-full h-full bg-gradient-to-br from-purple-200 to-purple-300 rounded-3xl -z-10" />
@@ -511,10 +511,10 @@ import shopVideo from "./pic/shop.mp4";
           </div>
         </section>
 
-        <section id="about" className="py-24 bg-white">
+        <section id="about" className="py-16 sm:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+            <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
                 {t("nav.about")}{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent">
                   Spring Day Daily Care
@@ -522,7 +522,7 @@ import shopVideo from "./pic/shop.mp4";
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
               <div className="space-y-6 animate-fade-in-left">
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-gray-800">
@@ -533,7 +533,7 @@ import shopVideo from "./pic/shop.mp4";
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 pt-4">
                   <div className="text-center p-6 bg-purple-50 rounded-2xl">
                     <div className="text-3xl font-bold text-purple-600 mb-2">
                       100%
@@ -555,7 +555,7 @@ import shopVideo from "./pic/shop.mp4";
                 <img
                   src="https://images.pexels.com/photos/4465831/pexels-photo-4465831.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Natural Materials"
-                  className="rounded-3xl shadow-xl w-full"
+                  className="rounded-3xl shadow-xl w-full h-56 sm:h-80 object-cover"
                 />
                 <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50" />
                 <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-50" />
@@ -566,11 +566,11 @@ import shopVideo from "./pic/shop.mp4";
 
         <section
           id="products"
-          className="py-24 bg-gradient-to-b from-purple-50 to-white"
+          className="py-16 sm:py-24 bg-gradient-to-b from-purple-50 to-white"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 animate-fade-in-up">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+            <div className="text-center mb-10 sm:mb-16 animate-fade-in-up">
+              <h2 className="text-3xl sm:text-5xl font-bold text-gray-800 mb-4">
                 {t("products.title")}{" "}
                 <span className="bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent" />
               </h2>
@@ -579,22 +579,31 @@ import shopVideo from "./pic/shop.mp4";
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {([img4ply, img3ply, imgFacial4] as string[]).map(
-                (image, index) => {
+            <div className="relative">
+              <button
+                type="button"
+                aria-label="Scroll left"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full shadow p-2 hidden sm:block"
+                onClick={() => {
+                  document.getElementById('products-scroll')?.scrollBy({ left: -320, behavior: 'smooth' });
+                }}
+              >
+                <ChevronRight className="w-6 h-6 text-purple-600 rotate-180" />
+              </button>
+              <div
+                id="products-scroll"
+                className="flex overflow-x-auto gap-4 md:grid md:grid-cols-3 md:gap-8 scrollbar-thin scrollbar-thumb-purple-200 scrollbar-track-transparent pb-4 md:pb-0"
+                style={{ scrollSnapType: 'x mandatory' }}
+              >
+                {([img4ply, img3ply, imgFacial4] as string[]).map((image, index) => {
                   const item = translations[lang].products.items[index];
                   return (
                     <div
                       key={item.name}
-                      className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden animate-fade-in-up"
-                      style={{ animationDelay: `${index * 150}ms` }}
+                      className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden animate-fade-in-up min-w-[260px] max-w-xs w-72 flex-shrink-0 md:w-auto md:min-w-0 md:max-w-none"
+                      style={{ animationDelay: `${index * 150}ms`, scrollSnapAlign: 'start' }}
                     >
                       <div className="relative overflow-hidden">
-                        {/*
-                        To adjust the image position inside the fixed frame, change the object-position class below.
-                        Examples: object-top, object-center, object-bottom, object-left, object-right, or object-[50%_20%] for custom.
-                        The frame will always be 16rem (h-64) tall. Adjust as needed.
-                      */}
                         <img
                           src={
                             image &&
@@ -604,7 +613,7 @@ import shopVideo from "./pic/shop.mp4";
                               : image
                           }
                           alt={item.name}
-                          className="w-full h-85 object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                          className="w-full h-52 sm:h-64 object-cover object-center group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
@@ -631,8 +640,18 @@ import shopVideo from "./pic/shop.mp4";
                       </div>
                     </div>
                   );
-                }
-              )}
+                })}
+              </div>
+              <button
+                type="button"
+                aria-label="Scroll right"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full shadow p-2 hidden sm:block"
+                onClick={() => {
+                  document.getElementById('products-scroll')?.scrollBy({ left: 320, behavior: 'smooth' });
+                }}
+              >
+                <ChevronRight className="w-6 h-6 text-purple-600" />
+              </button>
             </div>
           </div>
         </section>
@@ -703,65 +722,43 @@ import shopVideo from "./pic/shop.mp4";
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              {[
-                {
-                  id: "facebook",
-                  title: "Facebook",
-                  url: "https://www.facebook.com/share/17g2cJyAxP/?mibextid=wwXIfr",
-                  bgClass: "bg-[#1877F2]",
-                },
-                {
-                  id: "instagram",
-                  title: "Instagram",
-                  url: "https://www.instagram.com/springdaytissuemalaysia?igsh=MWNwNzV2OTdiZGRt",
-                  bgClass:
-                    "bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600",
-                },
-                {
-                  id: "xhs",
-                  title: "小红书",
-                  url: "https://xhslink.com/m/54JSJQJanZp",
-                  bgClass: "bg-[#FF0036]",
-                },
-                {
-                  id: "shopee",
-                  title: "Shopee",
-                  url: "https://my.shp.ee/1jLCkiZ",
-                  bgClass: "bg-[#EE4D2D]",
-                },
-              ].map((item, index) => (
-                <a
-                  key={item.id}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group p-8 bg-white rounded-3xl hover:shadow-xl transition-all duration-500 border border-purple-100 hover:border-purple-300 animate-fade-in-up flex flex-col items-center justify-center text-center"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div
-                    className={`w-16 h-16 ${item.bgClass} rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-all duration-300`}
-                  >
-                    {item.id === "facebook" && (
-                      <Facebook className="w-8 h-8 text-white" />
-                    )}
-                    {item.id === "instagram" && (
-                      <Instagram className="w-8 h-8 text-white" />
-                    )}
-                    {item.id === "xhs" && (
-                      <span className="text-white font-bold text-lg">
-                        小红书
-                      </span>
-                    )}
-                    {item.id === "shopee" && (
-                      <span className="text-white font-bold text-2xl">S</span>
-                    )}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-                    {item.title}
-                  </h3>
-                </a>
-              ))}
+            <div className="flex flex-row flex-wrap gap-4 justify-center items-center">
+              <a
+                href="https://www.facebook.com/share/17g2cJyAxP/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#1877F2] rounded-2xl flex flex-col items-center justify-center text-white hover:scale-110 transition-all duration-300"
+              >
+                <Facebook className="w-8 h-8 text-white mb-1" />
+                {/* <span className="text-xs font-bold">Facebook</span> */}
+              </a>
+              <a
+                href="https://www.instagram.com/springdaytissuemalaysia?igsh=MWNwNzV2OTdiZGRt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 rounded-2xl flex flex-col items-center justify-center text-white hover:scale-110 transition-all duration-300"
+              >
+                <Instagram className="w-8 h-8 text-white mb-1" />
+                {/* <span className="text-xs font-bold">Instagram</span> */}
+              </a>
+              <a
+                href="https://xhslink.com/m/54JSJQJanZp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#FF0036] rounded-2xl flex flex-col items-center justify-center text-white hover:scale-110 transition-all duration-300"
+              >
+                <span className="text-white font-bold text-lg mb-1">小红书</span>
+                {/* <span className="text-xs font-bold">小红书</span> */}
+              </a>
+              <a
+                href="https://my.shp.ee/1jLCkiZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-16 h-16 bg-[#EE4D2D] rounded-2xl flex flex-col items-center justify-center text-white hover:scale-110 transition-all duration-300"
+              >
+                <span className="text-white font-bold text-2xl mb-1">S</span>
+                {/* <span className="text-xs font-bold">Shopee</span> */}
+              </a>
             </div>
           </div>
         </section>
